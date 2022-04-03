@@ -1,1 +1,28 @@
-<p>food-entry works!</p>
+<!-- <mat-toolbar *ngIf="successMsg" color="accent">{{ successMsg }}</mat-toolbar>
+<mat-toolbar *ngIf="errorMsg" color="warn">{{ errorMsg }}</mat-toolbar> -->
+
+<div class="from-container">
+  <form (submit)="createEntry()">
+    <h1>Create New Food Entry</h1>
+    <mat-form-field>
+      <input
+        [(ngModel)]="expirationDate"
+        name="expirationDate"
+        matInput
+        [matDatepicker]="picker"
+        placeholder="Select Expiration Date"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        [(ngModel)]="foodName"
+        name="foodName"
+        matInput
+        placeholder="Food Name"
+      />
+    </mat-form-field>
+    <button mat-raised-button color="primary">Create Entry</button>
+  </form>
+</div>

@@ -1,4 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+} */
+
+.green-snackbar {
+  background: rgb(38, 161, 83);
+  color: rgb(255, 255, 255);
+}
+
+.green-snackbar .mat-simple-snackbar-action {
+  color: rgb(0, 0, 0);
+}
+
+.red-snackbar {
+  background: #d12424;
+  color: rgb(255, 255, 255);
+}
+
+.red-snackbar .mat-simple-snackbar-action {
+  color: rgb(0, 0, 0);
+}

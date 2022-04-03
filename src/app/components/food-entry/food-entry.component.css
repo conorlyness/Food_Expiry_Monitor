@@ -1,0 +1,16 @@
+.from-container {
+  margin-top: 50px;
+  width: 50vw;
+  margin-left: 25vw;
+}
+
+form {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 10%;
+}

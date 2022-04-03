@@ -12,6 +12,7 @@ const today = `${date}/${month}/${year}`;
 router.get('/foodExpiration', (req, res, next) => {
   req.collection
     .find({})
+    .sort({ expirationDate: 1 })
     .toArray()
     .then((results) => res.json(results))
     .catch((error) => res.send(error));
@@ -46,7 +47,7 @@ router.post('/foodExpiration', (req, res, next) => {
   const { foodName, expirationDate } = req.body;
   if (!foodName || !expirationDate) {
     return res.status(400).json({
-      message: 'food name and expiration date are required',
+      message: 'Food name & Expiration date are required',
     });
   }
   const payload = { foodName, expirationDate };

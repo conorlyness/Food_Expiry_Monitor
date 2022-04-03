@@ -15,13 +15,23 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { HomeComponent } from './components/home/home.component';
-import { FoodEntryComponent } from './components/food-entry/food-entry.component';
+import { FoodListComponent } from './components/food-list/food-list.component';
 import { ExpiringSoonComponent } from './components/expiring-soon/expiring-soon.component';
 import { ExpiringTodayComponent } from './components/expiring-today/expiring-today.component';
 import { ExpiredYesterdayComponent } from './components/expired-yesterday/expired-yesterday.component';
+import { FoodEntryComponent } from './components/food-entry/food-entry.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, FoodEntryComponent, ExpiringSoonComponent, ExpiringTodayComponent, ExpiredYesterdayComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    FoodListComponent,
+    ExpiringSoonComponent,
+    ExpiringTodayComponent,
+    ExpiredYesterdayComponent,
+    FoodEntryComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -36,6 +46,7 @@ import { ExpiredYesterdayComponent } from './components/expired-yesterday/expire
     MatDatepickerModule,
     MatNativeDateModule,
     MatToolbarModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
