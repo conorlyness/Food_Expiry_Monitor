@@ -21,6 +21,7 @@ import { ExpiringTodayComponent } from './components/expiring-today/expiring-tod
 import { ExpiredYesterdayComponent } from './components/expired-yesterday/expired-yesterday.component';
 import { FoodEntryComponent } from './components/food-entry/food-entry.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatNativeDateModule,
     MatToolbarModule,
     MatSnackBarModule,
+    MatSidenavModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
