@@ -22,7 +22,7 @@ import { ExpiredYesterdayComponent } from './components/expired-yesterday/expire
 import { FoodEntryComponent } from './components/food-entry/food-entry.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
-
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +49,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatToolbarModule,
     MatSnackBarModule,
     MatSidenavModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
