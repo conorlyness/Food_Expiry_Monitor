@@ -11,7 +11,7 @@
     <ng-container matColumnDef="expirationDate">
       <th mat-header-cell *matHeaderCellDef>Expiriation</th>
       <td mat-cell *matCellDef="let entry">
-        {{ entry.expirationDate | date: "dd/MM/yyyy" }}
+        {{ entry.expirationDate }}
       </td>
     </ng-container>
     <ng-container matColumnDef="cancel">

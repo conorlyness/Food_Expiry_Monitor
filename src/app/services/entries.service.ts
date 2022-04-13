@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Entry } from '../Entry';
+import * as moment from 'moment'; //in your component
 
 @Injectable({
   providedIn: 'root',
@@ -22,11 +23,21 @@ export class EntriesService {
     return this.http.get<Entry[]>(`${this.BASE_URL}/foodExpiration/today`);
   }
 
+  //get the food expiring soon (within 3 days)
+  getExpiringSoon(): Observable<Entry[]> {
+    return this.http.get<Entry[]>(`${this.BASE_URL}/foodExpiration/3days`);
+  }
+
+  //get the food that expired yesterday
+  getExpiredYesterday(): Observable<Entry[]> {
+    return this.http.get<Entry[]>(`${this.BASE_URL}/foodExpiration/yesterday`);
+  }
+
   //create new food entry
   createFoodEntry(foodName: string, expirationDate: string): Observable<Entry> {
     return this.http.post<Entry>(`${this.BASE_URL}/foodExpiration`, {
       foodName,
-      expirationDate,
+      expirationDate: moment(expirationDate).format('DD/MM/YYYY'),
     });
   }
 
