@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { mergeMap } from 'rxjs';
 import { Entry } from 'src/app/Entry';
 import { EntriesService } from 'src/app/services/entries.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-food-list',
@@ -10,37 +11,56 @@ import { EntriesService } from 'src/app/services/entries.service';
 })
 export class FoodListComponent implements OnInit {
   public loading = true;
-  public errorMsg: string = '';
-  public successMsg: string = '';
   public entries: Entry[] = [];
   public columns = ['foodName', 'expirationDate', 'cancel'];
 
-  constructor(private entriesService: EntriesService) {}
+  constructor(
+    private entryService: EntriesService,
+    private _snackBar: MatSnackBar
+  ) {}
+
+  openSuccessSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 3000,
+      horizontalPosition: 'right',
+      verticalPosition: 'top',
+      panelClass: ['green-snackbar'],
+    });
+  }
+
+  openErrorSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 3000,
+      horizontalPosition: 'right',
+      verticalPosition: 'top',
+      panelClass: ['red-snackbar'],
+    });
+  }
 
   ngOnInit() {
-    this.entriesService.getEntries().subscribe(
+    this.entryService.getEntries().subscribe(
       (entries) => {
         this.entries = entries;
         this.loading = false;
       },
       (error: ErrorEvent) => {
-        this.errorMsg = error.error.message;
+        this.openErrorSnackBar(error.error.message, 'Dismiss');
         this.loading = false;
       }
     );
   }
 
   deleteEntry(id: string) {
-    this.entriesService
+    this.entryService
       .deleteEntry(id)
-      .pipe(mergeMap(() => this.entriesService.getEntries()))
+      .pipe(mergeMap(() => this.entryService.getEntries()))
       .subscribe(
         (entries: Entry[]) => {
           this.entries = entries;
-          this.successMsg = 'Sucessfully deleted food entry';
+          this.openSuccessSnackBar('Sucessfully deleted food entry', 'Dismiss');
         },
         (error: ErrorEvent) => {
-          this.errorMsg = error.error.message;
+          this.openErrorSnackBar(error.error.message, 'Dismiss');
         }
       );
   }

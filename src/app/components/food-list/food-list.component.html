@@ -1,6 +1,6 @@
 <mat-spinner *ngIf="loading"></mat-spinner>
-<mat-toolbar *ngIf="successMsg" color="accent">{{ successMsg }}</mat-toolbar>
-<mat-toolbar *ngIf="errorMsg" color="warn">{{ errorMsg }}</mat-toolbar>
+<!-- <mat-toolbar *ngIf="successMsg" color="accent">{{ successMsg }}</mat-toolbar>
+<mat-toolbar *ngIf="errorMsg" color="warn">{{ errorMsg }}</mat-toolbar> -->
 <h1>All Food Entries</h1>
 <div *ngIf="!loading && !loading">
   <table mat-table [dataSource]="entries" class="mat-elevation-z8">

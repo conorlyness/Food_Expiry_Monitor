@@ -9,8 +9,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./food-entry.component.css'],
 })
 export class FoodEntryComponent implements OnInit {
-  public successMsg: string = '';
-  public errorMsg: string = '';
   public foodName: string = '';
   public expirationDate: string = '';
 
@@ -40,19 +38,15 @@ export class FoodEntryComponent implements OnInit {
   ngOnInit(): void {}
 
   createEntry() {
-    this.successMsg = '';
-    this.errorMsg = '';
     this.entryService
       .createFoodEntry(this.foodName, this.expirationDate)
       .subscribe(
         (createdEntry: Entry) => {
           this.expirationDate = '';
           this.foodName = '';
-          this.successMsg = `Sucessfully added food entry`;
           this.openSuccessSnackBar('Sucessfully added food entry', 'Dismiss');
         },
         (error: ErrorEvent) => {
-          this.errorMsg = error.error.message;
           this.openErrorSnackBar(error.error.message, 'Dismiss');
         }
       );
