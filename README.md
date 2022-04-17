@@ -1,4 +1,9 @@
 Food expiration monitor  
+Ensure:  
+angular Cli is installed: npm i @angular/cli  
+nodemon: npm i nodemon  
+and MongoDB is installed locally  
+
 <ul>Starting the server
     <li>CD into server</li>  
     <li>run npm install</li>
