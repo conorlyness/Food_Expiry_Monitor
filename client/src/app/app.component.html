@@ -10,20 +10,18 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <p>
-      <mat-toolbar color="primary">
-        <button
-          (click)="sidenav.toggle()"
-          mat-icon-button
-          class="example-icon"
-          aria-label="Example icon-button with menu icon"
-        >
-          <mat-icon>menu</mat-icon>
-        </button>
-        <span>Food Expiration Monitor</span>
-        <span class="example-spacer"></span>
-      </mat-toolbar>
-    </p>
+    <mat-toolbar color="primary">
+      <button
+        (click)="sidenav.toggle()"
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with menu icon"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Food Expiration Monitor</span>
+      <span class="example-spacer"></span>
+    </mat-toolbar>
     <div class="container">
       <router-outlet></router-outlet>
     </div>

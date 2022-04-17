@@ -2,12 +2,14 @@ mat-sidenav-container {
   height: 100%;
 }
 
-/* mat-sidenav,
-container {
-  padding: 16px;
-} */
-
 mat-sidenav {
-  /* background-color: lightcoral; */
   width: 200px;
+}
+
+.container {
+  height: max-content;
+}
+
+mat-sidenav-content {
+  /* background-color: #484852; */
 }
