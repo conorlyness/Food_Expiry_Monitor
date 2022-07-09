@@ -1,1 +1,27 @@
-<p>expiring-soon works!</p>
+<h1>Expiring Soon</h1>
+<div *ngIf="!loading && !loading" class="container">
+  <mat-spinner *ngIf="loading"></mat-spinner>
+  <table mat-table [dataSource]="entries" class="mat-elevation-z8">
+    <ng-container matColumnDef="foodName">
+      <th mat-header-cell *matHeaderCellDef>Food</th>
+      <td mat-cell *matCellDef="let entry">{{ entry.foodName }}</td>
+    </ng-container>
+    <ng-container matColumnDef="expirationDate">
+      <th mat-header-cell *matHeaderCellDef>Expiriation</th>
+      <td mat-cell *matCellDef="let entry">
+        {{ entry.expirationDate }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="cancel">
+      <th mat-header-cell *matHeaderCellDef>Delete</th>
+      <td mat-cell *matCellDef="let entry">
+        <button (click)="deleteEntry(entry._id)" mat-raised-button color="warn">
+          Delete
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let entries; columns: columns"></tr>
+  </table>
+</div>

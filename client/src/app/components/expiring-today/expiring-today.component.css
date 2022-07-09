@@ -1,0 +1,43 @@
+.container {
+  height: 800px;
+  width: 80%;
+  margin: auto;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+  border-left: 1px solid #3c3c46;
+  border-right: 1px solid #3c3c46;
+}
+
+.mat-header-cell {
+  color: #3c3c46;
+  background-color: #fafafa;
+  border-top: 1px solid #3c3c46;
+}
+
+.mat-row {
+  background-color: #3c3c46;
+}
+
+.mat-cell {
+  color: #ffffff;
+}
+
+/* this is to have the columns and rows centered
+/* td,
+th {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+.mat-sort-header-container {
+  justify-content: center !important;
+} */
+
+h1 {
+  text-align: center;
+  color: rgb(0, 0, 0);
+  margin-bottom: 7px;
+}

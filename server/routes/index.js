@@ -11,7 +11,8 @@ const datePlus2 = t.getDate() + 2;
 const datePlus3 = t.getDate() + 3;
 
 //used for having dates one day in the past
-const dateMinus1 = t.getDate() - 1;
+const currentDate = t.getDate();
+const dateMinus1 = ('0' + (currentDate - 1)).slice(-2);
 
 const month = ('0' + (t.getMonth() + 1)).slice(-2);
 const year = t.getFullYear();
@@ -22,7 +23,6 @@ const threeDaysTillExpiry = `${datePlus3}/${month}/${year}`;
 const expiredOneDayAgo = `${dateMinus1}/${month}/${year}`;
 
 router.get('/foodExpiration', (req, res, next) => {
-  console.log(today);
   req.collection
     .find({})
     .sort({ expirationDate: 1 })
@@ -44,7 +44,6 @@ router.get('/foodExpiration/3days', (req, res, next) => {
 });
 
 router.get('/foodExpiration/today', (req, res, next) => {
-  console.log(today);
   req.collection
     .find({ expirationDate: today })
     .toArray()
