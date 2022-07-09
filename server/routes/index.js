@@ -22,7 +22,7 @@ const twoDaysTillExpiry = `${datePlus2}/${month}/${year}`;
 const threeDaysTillExpiry = `${datePlus3}/${month}/${year}`;
 const expiredOneDayAgo = `${dateMinus1}/${month}/${year}`;
 
-router.get('/foodExpiration', (req, res, next) => {
+router.get('/foodExpiration', (req, res) => {
   req.collection
     .find({})
     .sort({ expirationDate: 1 })
@@ -31,7 +31,7 @@ router.get('/foodExpiration', (req, res, next) => {
     .catch((error) => res.send(error));
 });
 
-router.get('/foodExpiration/3days', (req, res, next) => {
+router.get('/foodExpiration/3days', (req, res) => {
   //store all the dates i want to look for in the find method
   let dates = [oneDayTillExpiry, twoDaysTillExpiry, threeDaysTillExpiry];
   req.collection
@@ -43,7 +43,7 @@ router.get('/foodExpiration/3days', (req, res, next) => {
     .catch((error) => res.send(error));
 });
 
-router.get('/foodExpiration/today', (req, res, next) => {
+router.get('/foodExpiration/today', (req, res) => {
   req.collection
     .find({ expirationDate: today })
     .toArray()
@@ -51,7 +51,7 @@ router.get('/foodExpiration/today', (req, res, next) => {
     .catch((error) => res.send(error));
 });
 
-router.get('/foodExpiration/yesterday', (req, res, next) => {
+router.get('/foodExpiration/yesterday', (req, res) => {
   req.collection
     .find({ expirationDate: expiredOneDayAgo })
     .toArray()
@@ -59,7 +59,7 @@ router.get('/foodExpiration/yesterday', (req, res, next) => {
     .catch((error) => res.send(error));
 });
 
-router.post('/foodExpiration', (req, res, next) => {
+router.post('/foodExpiration', (req, res) => {
   const { foodName, expirationDate } = req.body;
   if (!foodName || !expirationDate) {
     return res.status(400).json({
@@ -74,7 +74,7 @@ router.post('/foodExpiration', (req, res, next) => {
     .catch((error) => res.send(error));
 });
 
-router.delete('/foodExpiration/:id', (req, res, next) => {
+router.delete('/foodExpiration/:id', (req, res) => {
   const { id } = req.params;
   const _id = ObjectID(id);
 
