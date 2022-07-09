@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { dateInputsHaveChanged } from '@angular/material/datepicker/datepicker-input-base';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { mergeMap } from 'rxjs';
 import { Entry } from 'src/app/Entry';
@@ -20,16 +19,7 @@ export class ExpiredYesterdayComponent implements OnInit {
     private _snackBar: MatSnackBar
   ) {}
 
-  t = new Date();
-  currentDate = this.t.getDate();
-  date = ('0' + (this.currentDate - 1)).slice(-2);
-
-  month = ('0' + (this.t.getMonth() + 1)).slice(-2);
-  year = this.t.getFullYear();
-  expiredOneDayAgo = `${this.date}/${this.month}/${this.year}`;
-
   ngOnInit() {
-    console.log(this.expiredOneDayAgo);
     this.entryService.getExpiredYesterday().subscribe(
       (entries) => {
         this.entries = entries;
